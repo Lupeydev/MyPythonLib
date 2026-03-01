@@ -1,4 +1,5 @@
 import os
+import sys
 
 # C++ Output
 def cout(word):
@@ -47,18 +48,46 @@ def minusinc(varas):
      varas -= 1
      return varas
 
-def killcode():
-    import ctypes  
-    def Mbox(title, text, style):
-        return ctypes.windll.user32.MessageBoxW(0, text, title, style)
-    Mbox('Woah', 'Why are you trying to kill your code', 16)
+def killcode(varprompt):
+     import ctypes  
+     def Mbox(title, text, style):
+          return ctypes.windll.user32.MessageBoxW(0, text, title, style)
+     Mbox('Woah', 'Why are you trying to kill your code', 16)
+     sys.exit()
 
 def ReadFile(filename):
      contents = open(filename)
+     print(contents)
      return contents
 
 def DeleteFile(filename):
      os.remove(filename)
 
+def new_File(filename):
+     open(filename, "x") 
+
+def append_File(filename, content):
+     with open(filename, "a") as f:
+          f.write(content)
+
+def write_File(filename, content):
+     with open(filename, "w") as f:
+          f.write(content)
+
 def Clear():
      os.system("cls")
+
+def HowMuchCPU():
+     print("Number of CPUs in the system:", os.cpu_count())
+
+def PythonVersion():
+     print(sys.version)
+
+def PythonVersionExtended():
+     print(sys.version_info)
+
+def ListModules():
+     print(sys.modules)
+
+def Platform():
+     print(sys.platform)
